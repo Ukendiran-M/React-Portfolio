@@ -1,0 +1,197 @@
+.container
+{
+    height: 95vh;
+    width: 95vw;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    overflow: hidden;   
+}
+
+h1
+{
+    position: relative;
+    left: 230px;
+    top: 20px;
+    font-size: 60px;
+    font-weight: 800;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+h3
+{
+    font-size: 30px;
+    font-weight: 400;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    left: 250px;
+    top: 10px;
+    transform: translateY(100px); /* Start 30px below */
+    opacity: 0; /* Initially invisible */
+    transition: transform 1s ease, opacity 1s ease; /* Smooth transition */
+}
+
+p
+{
+    position: relative;
+    left: 250px;
+    bottom: 20px;
+    font-size: larger;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transform: translateY(150px); /* Start 30px below */
+    opacity: 0; /* Initially invisible */
+    transition: transform 2s ease, opacity 2s ease; /* Smooth transition */
+}
+
+/* Final state with the transition applied */
+h3.show, p.show {
+  transform: translateY(0); /* Move to original position */
+  opacity: 1; /* Fade in */
+}
+
+.speech-bubble
+{
+  position: absolute;
+}
+
+.speech-bubble.show {
+  opacity: 1; /* Fade in */
+  transform: scale(1);
+}
+
+.holder {
+    display: flex;           
+    justify-content: center; 
+    align-items: center;   
+    position: relative;
+    top: 25px;          
+  }
+
+  .profile img
+  {
+    height: 500px;
+    position: relative;
+    left: 1200px;
+    bottom: 430px;
+  }
+
+  @keyframes typing {
+    0%, 10% { content: ""; }
+    20% { content: "U"; }
+    30% { content: "UK"; }
+    40% { content: "UKE"; }
+    50% { content: "UKEN"; }
+    60% { content: "UKEND"; }
+    70% { content: "UKENDI"; }
+    80% { content: "UKENDIR"; }
+    90% { content: "UKENDIRA"; }
+    100% { content: "UKENDIRAN"; }
+  }
+  
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  
+  .typewriter {
+    --caret: currentcolor;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .typewriter::before {
+    content: ""; /* Initial empty content */
+    animation: typing 3s steps(10, end) forwards; /* Typing animation */
+  }
+  
+  .typewriter::after {
+    content: ""; 
+    position: absolute;
+    right: -5px; /* Adds space between the caret and the text */
+    width: 8px; /* Wider caret */
+    height: 2em; /* Matches the height of the text */
+    background-color: var(--caret);
+    animation: blink 0.5s step-end infinite; /* Blinking caret animation */
+  }
+  
+  /* Reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    .typewriter {
+      animation: none;
+    }
+    .typewriter::before {
+      content: "UKENDIRAN"; /* Static content for reduced motion users */
+    }
+    .typewriter::after {
+      animation: none;
+    }
+  }   
+
+/* Basic button styling */
+.fancy-button {
+  padding: 15px 30px;
+  font-size: 18px;
+  font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
+  font-weight: bold;
+  color: #fff;
+  background-color: red;
+  border: none;
+  border-radius: 12px;
+  position: relative;
+  left: 350px;
+  top: 100px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0px 8px 15px rgb(224, 2, 2);
+  animation: popUp 1s ease forwards;
+}
+
+/* Pop-up animation */
+@keyframes popUp {
+  0% {
+    transform: scale(0.2); /* Start small */
+    opacity: 0;
+  }
+  80% {
+    transform: scale(1.1); /* Slightly larger */
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1); /* Settle at normal size */
+  }
+}
+
+/* Hover state with transition and transform effects */
+.fancy-button:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0px 5px 10px rgb(226, 3, 33);
+  background-color: rgb(255, 0, 0);
+}
+
+/* Hover state inner glow */
+.fancy-button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s ease;
+}
+
+/* Scale glow effect on hover */
+.fancy-button:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Click effect */
+.fancy-button:active {
+  transform: translateY(0px) scale(1);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+  background-color: #ff0000;
+}

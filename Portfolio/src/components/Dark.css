@@ -1,0 +1,173 @@
+/* Reset default margin and padding on all elements */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Remove default margin and padding on body and html */
+html, body {
+  height: 100%; /* Ensure full height to avoid unwanted space */
+  margin: 0;
+  padding: 0;
+  background-color: #fff; /* Ensure no gray background */
+}
+/* Remove any extra margin or padding above the navbar */
+.navbar ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li {
+  margin-right: 20px;
+  display: flex;
+  align-items: center; /* Center items vertically */
+}
+
+.navbar ul li a {
+  color: #333;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.navbar ul li a:hover {
+  color: white;
+  background-color: black;
+}
+
+.dark-mode-toggle {
+  background: none;
+  border: none;
+  color: grey;
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  margin-left: 250px;
+  position: relative;
+  top: 5px;
+}
+
+.dark-mode-toggle:hover {
+  color: red;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+  background-color: #121212;
+  color: white;
+}
+
+body.dark-mode .navbar ul li a {
+  color: white;
+}
+
+body.dark-mode .navbar ul li a:hover {
+  color: white;
+  background-color: red;
+}
+
+body.dark-mode .Sidebar ul li a {
+  color: white;
+}
+/* Sidebar link styling */
+.side li a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black; /* Default text color */
+  font-size: 18px;
+  padding-left: 5px;
+  width: auto;
+  position: relative;
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Pseudo-element for hover background effect */
+.side li a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black; /* Background color */
+  border-radius: 3px;
+  transform: scaleX(0); /* Starts as 0 scale */
+  transform-origin: left;
+  transition: transform 0.3s ease; /* Smooth transition */
+  z-index: -1; /* Places background behind text */
+}
+
+/* Hover effect with background and text color change */
+.side li a:hover::before {
+  background-color: black;
+  transform: scaleX(1); /* Expands background smoothly */
+}
+
+.side li a:hover {
+  background-color: black;/* Text color change on hover */
+}
+
+/* Light mode for speech bubble */
+.speech-bubble {
+  position: relative;
+  left: 250px;
+  bottom: 220px;
+  background-color: black;
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  width: 80px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  text-align: center;
+  font-size: 16px;
+  margin-top: 20px;
+  opacity: 0; /* Initially hidden */
+  transform: scale(0.2); /* Start at 50% size */
+  transition: transform 1s ease;
+}
+
+/* Triangle for the tail of the bubble */
+.speech-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -20px; /* Position below the bubble */
+  left: 10px; /* Adjust alignment with bubble */
+  border-width: 10px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+/* Dark mode styles for speech bubble */
+body.dark-mode .speech-bubble {
+  background-color: red; /* Darker background */
+  color: white; /* Light text for dark background */
+}
+
+/* Dark mode triangle/tail color */
+body.dark-mode .speech-bubble::after {
+  border-color: red transparent transparent transparent; /* Matches bubble background */
+}
+
+body.dark-mode .side li a:hover::before {
+  transform: scaleX(1); /* Expands background smoothly */
+}
+
+body.dark-mode .side li a::before {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: red;
+border-radius: 3px;
+transform: scaleX(0);
+transform-origin: left;
+transition: transform 0.3s ease;
+z-index: -1; /* Places background behind text */
+}

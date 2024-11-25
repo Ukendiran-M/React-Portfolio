@@ -1,0 +1,93 @@
+/* Sidebar container styles */
+.Sidebar {
+  width: 250px;
+  height: auto; /* Set to auto instead of 100vh */
+  position: relative;
+  top: 350px;
+  right: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: inherit;
+}
+
+/* Sidebar list styling */
+.side {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  bottom: 75px;
+  right: 70px;
+}
+
+/* Sidebar list item styling */
+.side li {
+  margin: 10px 0;
+  width: 100%;
+}
+
+/* Sidebar link styling with hover animation */
+.side li a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  padding: 5px;
+  border-radius: 5px;
+  width: 100%;
+  position: relative; /* Needed for hover background effect */
+  overflow: hidden; /* Ensures hover effect stays within button */
+}
+
+/* Sidebar icons styling */
+.side li a i {
+  margin-right: 15px;
+  font-size: 25px;
+}
+
+/* Hover animation effect */
+.side li a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ddd; /* Set desired hover background color */
+  transform: scaleX(0); /* Start with background hidden */
+  transform-origin: left;
+  transition: transform 0.3s ease; /* Animation duration and effect */
+  z-index: -1; /* Place background behind text */
+}
+
+.side li a:hover::before {
+  transform: scaleX(1); /* Expands background on hover */
+}
+
+.side li a:hover {
+  color: white; /* Change text color on hover */
+  transform: scale(1.05); /* Slightly scale up for emphasis */
+}
+
+/* Responsive styles for mobile view */
+@media (max-width: 768px) {
+  .Sidebar {
+    width: 200px;
+  }
+  .side li a {
+    font-size: 16px;
+  }
+}
+
+.icon {
+  height: 50px;
+  position: relative;
+  left: 90px;
+  bottom: 210px;
+}
